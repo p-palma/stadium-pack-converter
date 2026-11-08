@@ -1,0 +1,62 @@
+STADIUM PACK for the Kojuro skin (FM27) - credits
+===================================================
+
+This folder was made by the Stadium Pack Converter from the stadium picture pack(s) you chose.
+It is free and unofficial. Nobody makes any money from it. All photos belong to their creators:
+please credit and thank the authors of the packs you used (for example the Mini Stadiums Superpack
+by stevemc on FM Scout: https://www.fmscout.com/a-mini-stadiums-superpack-fm24.html).
+
+PHOTOS INCLUDED WITH THE CONVERTER (Wikimedia Commons)
+------------------------------------------------------
+These clubs use a free-licence photo, cropped and resized for the card. Photos under CC BY-SA keep
+that licence: you may share and adapt them under the same licence, with credit.
+
+Vitória S.C. - Estádio D. Afonso Henriques
+  Photo: Vincenzo.togni
+  Licence: CC BY-SA 4.0
+  Source: https://commons.wikimedia.org/wiki/File:The_Est%C3%A1dio_D._Alfonso_Henriques_(2018).jpg
+
+Gil Vicente F.C. - Estádio Cidade de Barcelos
+  Photo: Juninho131520
+  Licence: CC BY-SA 4.0
+  Source: https://commons.wikimedia.org/wiki/File:Estadio_barcelos.jpg
+
+Sporting CP - Estádio José Alvalade
+  Photo: Footballnerd2007
+  Licence: CC BY 4.0
+  Source: https://commons.wikimedia.org/wiki/File:Estadio_Jose_Alvalade_Pano_2025.jpg
+
+S.L. Benfica - Estádio da Luz
+  Photo: Massimo Catarinella
+  Licence: CC BY 3.0
+  Source: https://commons.wikimedia.org/wiki/File:LuzLissabon.jpg
+
+Atlético Madrid - Metropolitano Stadium
+  Photo: Fernandopascullo
+  Licence: CC BY-SA 4.0
+  Source: https://commons.wikimedia.org/wiki/File:Wanda-Metropolitano.jpg
+
+Juventus FC - Juventus Stadium
+  Photo: forzaq8 from kuwait, kuwait
+  Licence: CC BY 2.0
+  Source: https://commons.wikimedia.org/wiki/File:Juventus_v_Real_Madrid,_Champions_League,_Stadium,_Turin,_2013.jpg
+
+Paris Saint-Germain FC - Parc des Princes
+  Photo: Валерий Дед
+  Licence: CC BY 3.0
+  Source: https://commons.wikimedia.org/wiki/File:Paris_Parc_des_Princes_1.jpg
+
+PSV Eindhoven - Philips Stadion
+  Photo: TaraO
+  Licence: CC BY 2.5
+  Source: https://commons.wikimedia.org/wiki/File:Philips_Stadion.jpg
+
+FC Porto - Estádio do Dragão
+  Photo: Jalionas
+  Licence: CC0
+  Source: https://commons.wikimedia.org/wiki/File:Stade_de_porto_stade_du_dragon.jpg
+
+Real Madrid Club de Fútbol - Santiago Bernabéu
+  Photo: Arieleisenhammer
+  Licence: CC BY 4.0
+  Source: https://commons.wikimedia.org/wiki/File:Bernab%C3%A9u_2026.png
