@@ -8,7 +8,7 @@
 // [graphics/]pictures/club/<id>/stadium links a photo to a club (team/<id>/stadium is used only when no club record
 // exists for that id). Records to pictures/stadium/<id> link a stadium, not a club: FM27 doesn't tell the skin a
 // club's stadium, so those are only counted. Folders with "stadium" in their path and no config.xml also count files
-// named <club id>.<ext>. The first source in the list wins a club; the skin's own photos (embedded) win over all.
+// named <club id>.<ext>. The first source in the list wins a club.
 //
 // Build: build.bat (C# 5, the compiler that ships with Windows). Test mode:
 //   stadium-pack-converter.exe --source <dir> [--source <dir> ...] --out <folder> --report <file>
@@ -37,14 +37,14 @@ namespace Kojuro
 {
     public class Result
     {
-        public int Clubs, Sources, Configs, Duplicates, StadiumLinked, Missing, LooseFiles, Own, BadIds;
+        public int Clubs, Sources, Configs, Duplicates, StadiumLinked, Missing, LooseFiles, BadIds;
         public List<string> Notes = new List<string>();
 
         public string Summary()
         {
             var sb = new StringBuilder();
             sb.AppendLine(string.Format("Done: {0} clubs now have a stadium photo.", Clubs));
-            sb.AppendLine(string.Format("  {0} from your pack(s) ({1} config files read), {2} from the skin itself.", Clubs - Own, Configs, Own));
+            sb.AppendLine(string.Format("  {0} config files read.", Configs));
             if (LooseFiles > 0) sb.AppendLine(string.Format("  {0} of them from files named after the club ID.", LooseFiles));
             if (Duplicates > 0) sb.AppendLine(string.Format("  {0} photos skipped: a pack higher in the list already had that club.", Duplicates));
             if (StadiumLinked > 0) sb.AppendLine(string.Format("  {0} photos skipped: linked to a stadium, not a club (FM27 can't place those).", StadiumLinked));
@@ -192,28 +192,15 @@ namespace Kojuro
             var r = new Result();
             if (HasForeignConfig(output)) throw new IOException("That folder already has a config.xml from another pack. Choose an empty folder.");
             var photos = Scan(sources, output, r, log);
-
-            // the skin's own photos (embedded resources "own_<id>.jpg") win over any pack
             var asm = Assembly.GetExecutingAssembly();
-            var own = asm.GetManifestResourceNames().Where(n => n.StartsWith("own_")).ToList();
 
             Directory.CreateDirectory(output);
             foreach (var f in Directory.GetFiles(output, "stadium_*")) { try { File.Delete(f); } catch { } }
 
             var sb = new StringBuilder();
             sb.Append("<record>\n\t" + Marker + "\n\t<boolean id=\"preload\" value=\"false\"/>\n\t<boolean id=\"amap\" value=\"false\"/>\n\t<list id=\"maps\">\n");
-            int done = 0, total = photos.Count + own.Count;
+            int done = 0, total = photos.Count;
             var written = new HashSet<string>();
-            foreach (var n in own)
-            {
-                string id = n.Substring(4, n.IndexOf('.') - 4);
-                using (var s = asm.GetManifestResourceStream(n))
-                using (var o = File.Create(Path.Combine(output, "stadium_" + id + Path.GetExtension(n))))
-                    s.CopyTo(o);
-                written.Add(id); r.Own++;
-                AppendRecords(sb, id);
-                if (progress != null) progress(++done, total);
-            }
             foreach (var kv in photos.OrderBy(k => long.Parse(k.Key)))
             {
                 done++;
@@ -321,7 +308,7 @@ namespace Kojuro
                 Style(convert, "Convert Stadium Pack", true); convert.Enabled = true;
                 if (e.Error != null) { MessageBox.Show(this, "Something went wrong:\n" + e.Error.Message, Text); return; }
                 var r = (Result)e.Result;
-                if (r.Clubs - r.Own == 0)
+                if (r.Clubs == 0)
                 {
                     MessageBox.Show(this, "No stadium photos linked to clubs were found in that folder.\n\nChoose the folder of your stadium pack (the one with its config.xml files, or a folder above it).", Text);
                     return;

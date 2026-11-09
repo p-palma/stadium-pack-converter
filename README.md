@@ -34,12 +34,11 @@ To remove the photos, delete `graphics\Stadium Pack`.
   stadium a club plays in. They are only counted.
 - It only reads your packs and never changes them. It writes only into the Save to folder,
   needs no admin rights and no internet.
-- Ten big clubs get a free photo from Wikimedia Commons that ships inside the app (see `CREDITS.txt`).
 
 ## Build it yourself
 
 No Visual Studio needed: `build.bat` uses the C# compiler that ships with Windows (.NET Framework 4)
-and embeds `CREDITS.txt` and the photos in `own/`.
+and embeds `CREDITS.txt`.
 
 ```
 build.bat
@@ -50,6 +49,5 @@ Test mode without the window:
 
 ## Licence
 
-Code: MIT (see `LICENSE`). The photos in `own/` keep their own Wikimedia Commons licences, listed in
-`CREDITS.txt`. Stadium photos from packs belong to their authors: please credit them.
+MIT (see `LICENSE`). Stadium photos from packs belong to their authors: please credit them.
 Free and unofficial, by twitch.tv/kojuropp.
